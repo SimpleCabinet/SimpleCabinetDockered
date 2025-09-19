@@ -22,7 +22,8 @@ services:
             DB_PASSWORD: "yourpassword"
             STORAGE_FILE_REMOTE_URL: "SIMPLECABINET_REMOTE_URL_PLACEHOLDER"
         volumes:
-        - assets:/app/assets
+        - simplecabinet:/app/data
+        - assets:/app/data/assets
         depends_on:
             - postgres
     postgres:
@@ -49,4 +50,5 @@ services:
 volumes:
     launcher:
     assets:
+    simplecabinet:
     postgres-database:
