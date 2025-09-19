@@ -1,8 +1,0 @@
-FROM eclipse-temurin:21-noble
-COPY backend-src/build/libs/*-SNAPSHOT.jar /app/app.jar
-COPY backend-configuration/* /app
-COPY start-simplecabinet-script.sh /app/start.sh
-WORKDIR /app
-EXPOSE 8080
-VOLUME /app/assets
-ENTRYPOINT ["/app/start.sh"]

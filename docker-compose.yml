@@ -1,8 +1,6 @@
 services:
     gravitlauncher:
-        build:
-            context: .
-            dockerfile: Dockerfile.launcher
+        image: ghcr.io/gravitlauncher/launcher:sha-3dc56a3
         restart: always
         stdin_open: true
         tty: true
@@ -12,18 +10,23 @@ services:
             ADDRESS: "LAUNCHSERVER_ADDRESS_PLACEHOLDER"
             PROJECTNAME: "GravitLauncher"
     simplecabinet:
-        build:
-            context: .
-            dockerfile: Dockerfile.simplecabinet
+        image: ghcr.io/simplecabinet/simplecabinetwebapi:sha-fb016af
         restart: always
         stdin_open: true
         tty: true
+        environment:
+            DB_HOST: "postgres"
+            DB_PORT: "5432"
+            DB_NAME: "simplecabinet"
+            DB_USER: "simplecabinet"
+            DB_PASSWORD: "yourpassword"
+            STORAGE_FILE_REMOTE_URL: "SIMPLECABINET_REMOTE_URL_PLACEHOLDER"
         volumes:
         - assets:/app/assets
         depends_on:
             - postgres
     postgres:
-        image: postgres:16
+        image: postgres:17
         restart: always
         environment:
             POSTGRES_DB: "simplecabinet"
