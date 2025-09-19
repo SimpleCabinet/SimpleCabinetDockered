@@ -2,8 +2,7 @@ FROM node:slim as build
 COPY frontend-src /app
 WORKDIR /app
 RUN yarn install --ignore-engines
-RUN yarn global add @quasar/cli
-RUN quasar build
+RUN yarn build
 FROM nginx
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/spa /frontend
