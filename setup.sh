@@ -1,7 +1,7 @@
 #!/bin/bash -e
 set -e
 FRONTEND_BRANCH=main
-MODULE_BRANCH=support/5.7.x
+MODULE_BRANCH=main
 
 SIMPLECABINET_REMOTE=localhost:17549
 SIMPLECABINET_PROTOCOL=http
