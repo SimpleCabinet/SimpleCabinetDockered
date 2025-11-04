@@ -1,4 +1,4 @@
-FROM node:slim as build
+FROM node:24-slim as build
 COPY frontend-src /app
 WORKDIR /app
 RUN yarn install --ignore-engines

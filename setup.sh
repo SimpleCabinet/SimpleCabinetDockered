@@ -34,7 +34,7 @@ sleep 60
 
 echo -e "\033[32mPhase 3.1: \033[33mRun basic initialization\033[m";
 
-docker compose exec simplecabinet curl http://simplecabinet:8080/setup > setup.json
+docker compose exec gravitlauncher curl http://simplecabinet:8080/setup > setup.json
 ADMIN_API_TOKEN=$(cat setup.json | jq ".accessToken")
 docker compose cp module-src/build/libs/*.jar gravitlauncher:/app/data/SimpleCabinet_module.jar
 echo "modules load SimpleCabinet_module.jar" | docker compose exec -T gravitlauncher socat UNIX-CONNECT:control-file -
