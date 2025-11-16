@@ -34,7 +34,7 @@ services:
             POSTGRES_USER: "simplecabinet"
             POSTGRES_PASSWORD: "yourpassword"
         volumes:
-            - postgres-database:/var/lib/postgresql/data
+            - postgres-database:/var/lib/postgresql
     nginx:
         build:
             context: .
